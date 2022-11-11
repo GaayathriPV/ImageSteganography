@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Login </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">           
+    </head>
+    <body></br></br></br></br></br>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Login Authentication</h1>
+             </div></br></br></br>
+             <h2 class="word">
+                <form action="{{ url_for('login_2fa') }}" method="post">
+                  <div class="msg">{{ msg }}</div>
+                    <input id="otp" name="otp" type="text" placeholder="Enter the OTP Generated" class="textbox"/></br></br>
+                    <!-- <input id="pwd" name="pwd" type="password" placeholder="Enter Your Password" class="textbox"/> -->
+                    <!-- <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i> -->
+                    </br></br></br>
+                    <input type="submit" class="btn" value="Authenticate"></br></br>
+                </form>
+            </h2>
+            <p class="bottom">Dont't have an account?  <a class="bottom" href="{{url_for('register')}}"> Sign Up here</a></p>
+          </div>
+        </div>
+    </body>
+</html>
