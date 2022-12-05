@@ -10,6 +10,7 @@ import cv2
 
 key = Fernet.generate_key()
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost:5432/flasksql'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'secret string'
@@ -236,6 +237,7 @@ def decode_data(img):
     #print("The Encoded data was :--",decoded_data[:-5])
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.debug=True
     app.run()
